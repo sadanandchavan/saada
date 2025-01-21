@@ -1,0 +1,24 @@
+Performance of Java Applications is Judged Based On:
+1. Business Transactions: Business transactions are the most reflective measurement of the user experience so it is an important factor to judge the performance of the application. If the storage space is not elastic, then the business transactions will be affected first.
+
+2. External Dependencies: External dependencies can significantly affect Java applications in unexpected ways. It can come under various forms like web services, applets, databases, and through which our Java application interacts. We have control over the configuration of the external dependencies, so it is important to know the problem when the specific dependency fails to work we should come up with a safety mechanism to overcome that.
+
+3. Caching Strategy: It is always faster to extract data from memory than making a network call to extract data(ex: retrieving data from the database server). Cache provides a mechanism for storing object instances locally which gives faster access to the data. The important things to be considered while deciding caching strategy are properly sizing the cache and should ensure that much data should not be loaded into the cache memory.
+
+4. Garbage Collection: Garbage collection in Java is very helpful to users as it deallocates the memory automatically instead of managing it manually(languages like C, C++). However, garbage collection is both a boon and a bane. When we finish using an object, we simply delete the reference to that object, and garbage collection will automatically free it for us. The garbage collector automatically frees memory when there are no references to that memory. However, when memory is allocated the reference to that memory is deleted before the memory gets free. It is important to tune your heap size and garbage collection strategy to meet your application behavior.
+
+
+5. Application Topology: The final performance component on which the performance of Java application is judged is application topology. Due to the arrival of the cloud, the application environment is getting adjusted high or low as per the user demand. Business transaction load and container performance are the two important metrics to be considered while we make application topology. It is important to analyze the performance of each application component and adjust the topology accordingly.
+
+
+Methods to Improve Performance of Java Applications
+Use Regular Expressions Carefully: Regular expressions are relatively cheap and convenient. If you use regular expressions in computation-intensive code sections, we should at least store the reference pattern in cache memory.
+Avoid recursion when possible: Recursion causes trouble in many cases. So we should minimize the usage of recursion or should come up with mechanisms where we can identify the trouble caused by recursion.
+Performance test suite: This test runs will help to identify the functional and performance side effects of the application. This test is important if you have too many external dependencies like databases or caches to the application.
+Use StringBuilder for concatenation of strings: Using StringBuffer in place of the string is very useful on basis of performance. If you are doing lots of string manipulation normal strings will reduce memory as it creates lots of garbage.
+Use the Stack and Avoid the Heap: Improving the performance of your application is to use primitive types instead of their wrapper classes. It is recommended to store the value in the stack instead of the heap to reduce memory consumption and handle it more efficiently.
+Concurrency control: Running several programs at the same time leads to performance degradation. Using the data access framework properly will improve data-access layer performance, and this strategy can lead to optimization gains for the overall application.
+Caching: Reusing your resources is more efficient and helps in increasing the performance of the application. Caching is a good way to improve responsiveness and you can use it to optimize your Java application performance.
+EnumSet:  It can be also called as EnumMap. In this implementation, we have an array of indexed values rather than a hash table. If the number of values is relatively small, you should really consider using EnumSet or EnumMap, instead of regular HashSet or HashMap instead.
+Thread Handling: Avoid Creating and Destroying too many threads. Creating and disposing of threads is a common cause of performance issues on the JVM because the thread objects are relatively heavy to create and destroy.
+JDBC Performance: Relational databases are also another cause of performance in Java applications. JDBC batching helps in handling the databases effectively.
